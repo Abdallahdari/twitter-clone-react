@@ -1,74 +1,31 @@
 import { useState } from "react";
 
 function Sidebar() {
-  const [Fill, Setfill] = useState(null);
-  function Handle() {
-    Setfill(!Fill);
+  const [Homeee, SetHome] = useState(0);
+  const [searc, Setseear] = useState(0);
+  const [noti, Setnotif] = useState(0);
+
+  function Hnadle1() {
+    SetHome(Homeee + 1);
+    Setseear(0);
+    Setnotif(0);
+  }
+  function Handle2() {
+    Setseear(searc + 1);
+    SetHome(0);
+    Setnotif(0);
+  }
+  function Handle3() {
+    Setnotif(noti + 1);
+    SetHome(0);
+    Setseear(0);
   }
   return (
     <div className=" ">
       <div className="flex flex-col gap-4 text-2xl ">
-        <div className="flex items-center gap-4 ">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={1.5}
-            stroke="currentColor"
-            className="size-6"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"
-            />
-          </svg>
-
-          <button>Home</button>
-        </div>
-        <div className="flex items-center gap-4 ">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke-width="1.5"
-            stroke="currentColor"
-            class="size-6"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
-            />
-          </svg>
-
-          <button
-            onClick={() => Handle(1)}
-            className={
-              Fill ? "font-semibold text-2xl text-white" : "text-2xl text-white"
-            }
-          >
-            Explore
-          </button>
-        </div>
-        <div className="flex items-center gap-4">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke-width="1.5"
-            stroke="currentColor"
-            class="size-6"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0M3.124 7.5A8.969 8.969 0 0 1 5.292 3m13.416 0a8.969 8.969 0 0 1 2.168 4.5"
-            />
-          </svg>
-
-          <button>Notification</button>
-        </div>
+        <Home1 onclick={Hnadle1} Homeee={Homeee} />
+        <Search onclick={Handle2} searc={searc}></Search>
+        <Notif onclick={Handle3} noti={noti} />
         <div className="flex items-center gap-4">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -117,7 +74,6 @@ function Sidebar() {
 
           <button>Communities</button>
         </div>
-
         <div className="flex items-center gap-4">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -152,5 +108,159 @@ function Sidebar() {
     </div>
   );
 }
+function Home1({ onclick, Homeee }) {
+  return (
+    <>
+      <div className="flex items-center gap-4 ">
+        {Homeee ? (
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="white"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+            className="size-6"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"
+            />
+          </svg>
+        ) : (
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+            className="size-6"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"
+            />
+          </svg>
+        )}
+        <button
+          className={
+            Homeee ? "text-2xl font-semibold transition duration-200" : ""
+          }
+          onClick={onclick}
+        >
+          Home
+        </button>
+      </div>
+    </>
+  );
+}
+function Search({ searc, children, onclick }) {
+  return (
+    <>
+      <div className="flex items-center gap-4 ">
+        {searc ? (
+          <>
+            <span className="font-semibold">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="size-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+                />
+              </svg>
+            </span>
+          </>
+        ) : (
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="size-6"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+            />
+          </svg>
+        )}
+        <button
+          className={
+            searc ? "text-2xl font-semibold transition duration-200" : ""
+          }
+          onClick={onclick}
+        >
+          Search
+        </button>
+      </div>
+    </>
+  );
+}
+function Button({ children, onclick }) {
+  return (
+    <>
+      <button onClick={onclick} className={"text-2xl text-white"}>
+        {children}{" "}
+      </button>
+    </>
+  );
+}
+function Notif({ onclick, noti }) {
+  return (
+    <>
+      <div className="flex items-center gap-4">
+        {noti ? (
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="white"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="size-6"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0M3.124 7.5A8.969 8.969 0 0 1 5.292 3m13.416 0a8.969 8.969 0 0 1 2.168 4.5"
+            />
+          </svg>
+        ) : (
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="size-6"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0M3.124 7.5A8.969 8.969 0 0 1 5.292 3m13.416 0a8.969 8.969 0 0 1 2.168 4.5"
+            />
+          </svg>
+        )}
 
+        <button
+          className={
+            noti ? "text-2xl font-semibold transition duration-200" : ""
+          }
+          onClick={onclick}
+        >
+          Notification
+        </button>
+      </div>
+    </>
+  );
+}
 export default Sidebar;
